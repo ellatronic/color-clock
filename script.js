@@ -6,30 +6,13 @@ $(document).ready(function(){
   // 1. Get the current time every second (24 hour time)
     function changeColor() {
       var now = new Date();
-      var hours;
-      var minutes;
-      var seconds;
+      var hours = "0" + now.getHours();
+      var minutes = "0" + now.getMinutes();
+      var seconds = "0" + now.getSeconds();
 
-      if (parseInt(now.getHours()) < 10) {
-        hours = "0" + now.getHours();
-      }
-      else {
-        hours = now.getHours();
-      }
-
-      if (parseInt(now.getMinutes()) < 10) {
-        minutes = "0" + now.getMinutes();
-      }
-      else {
-        minutes = now.getMinutes();
-      }
-
-      if (parseInt(now.getSeconds()) < 10) {
-        seconds = "0" + now.getSeconds();
-      }
-      else {
-        seconds = now.getSeconds();
-      }
+      hours = hours.slice(-2);
+      minutes = minutes.slice(-2);
+      seconds = seconds.slice(-2);
 
       var formatted = hours + ":" + minutes + ":" + seconds;
       var color = "#" + hours + minutes + seconds;
